@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/register.css" rel="stylesheet">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <!-- Bootstrap core CSS -->
+</head>
+<body background="/img/tree.jpg">
+<div id="regForm">
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">用户注册</h1>
+    <p style="color: #f80017;text-align: center" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+    <form  action="/register" method="post" >
+        <div class="form-group">
+            <label for="regUserName">用户名</label>
+            <input type="text" class="form-control" id="regUserName" name="regUserName" placeholder="用户名" required="">
+        </div>
+        <div class="form-group">
+            <label for="regPwd">密码</label>
+            <input type="password" class="form-control" id="regPwd" name="regPwd" placeholder="密码" required="">
+        </div>
+        <div class="form-group">
+            <label for="regPhoneNumber">手机号码</label>
+            <input type="text" class="form-control" id="regPhoneNumber" name="regPhoneNumber" placeholder="手机号码" required="" maxlength="11">
+        </div>
+        <div class="form-group">
+            <label for="regAddress">校内地址</label>
+            <input type="text" class="form-control" id="regAddress" name="regAddress" placeholder="邮寄地址" required="">
+        </div>
+        <div style="text-align: center">
+            <button type="submit" class="btn btn-primary" style="width: 80px;">注册</button>
+            <a th:href="@{index.html}" class="btn btn-default" style="width: 80px">返回主页</a>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

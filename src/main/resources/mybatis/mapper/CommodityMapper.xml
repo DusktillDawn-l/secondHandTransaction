@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leon.mapper.CommodityMapper">
+
+    <select id="queryAllCommodityList" resultType="Commodity">
+        select * from commodity
+    </select>
+
+    <select id="queryCommodityList" resultType="Commodity">
+        select * from commodity where sellerId=#{userId}
+    </select>
+    
+    <select id="queryCommodityById" resultType="Commodity" parameterType="int">
+        select * from commodity where commodityId=#{commodityId}
+    </select>
+
+    <select id="queryCommodityByName" resultType="Commodity" parameterType="String">
+        select * from commodity where commodityName like concat('%',#{commodityName},'%');
+    </select>
+    
+    <insert id="addCommodity" parameterType="Commodity">
+        insert into commodity(commodityId,sellerId,sellerName,commodityName,description,price,imagePath)
+        values (#{commodityId},#{sellerId},#{sellerName},#{commodityName},#{description},#{price},#{imagePath})
+    </insert>
+    
+    <delete id="deleteCommodity">
+        delete from commodity where commodityId=#{commodityId}
+    </delete>
+    
+    <update id="updateCommodity" parameterType="Commodity">
+        update commodity set commodityName=#{commodityName},description=#{description},price=#{price},imagePath=#{imagePath}
+        where commodityId=#{commodityId}
+    </update>
+
+</mapper>

@@ -1,0 +1,28 @@
+html,body{
+    background-size: cover;
+    margin: 0 auto;
+    font-size: .875rem;
+}
+#carousel-example-generic{
+    float: left;
+    margin-top: 100px;
+    margin-left: 170px;
+    height: 370px;
+    width: 600px;
+}
+image{
+    width: 100%;
+}
+#mainForm {
+    width: 470px;
+    float: right;
+    margin: 200px 230px 0 0;
+    background-color: #ffffff;
+    padding: 25px 20px;
+    box-shadow:0 3px 3px #c8c8c8 ;
+    border: 1px solid #EBEEF5;
+    border-radius: 10px;
+}
+button{
+    margin: 20px;
+}

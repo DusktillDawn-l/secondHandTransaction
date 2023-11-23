@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>个人主页</title>
+
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+
+<body background="/img/tree.jpg">
+<!--顶栏-->
+<div th:insert="~{commons/commons.html::topBar}"></div>
+<div class="container-fluid">
+    <div class="row">
+<!--侧边栏-->
+        <div th:insert="~{commons/commons.html::sideBar}"></div>
+
+<!--中心位置部分-->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" style="margin-top: 40px;">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">更改个人信息</h1>
+            </div>
+            <form class="form-horizontal" action="/changeUserInfo" method="post" enctype="multipart/form-data" style="margin: 0 20px; background-color: #ffffff;
+    padding: 25px 20px;
+    box-shadow: 0 3px 3px #c8c8c8;
+    border: 1px solid #EBEEF5;
+    border-radius: 10px;">
+                <div class="form-group" >
+                    <label style="float:left">用户名：</label>
+                    <p>[[${user.getUserName()}]]</p>
+                </div>
+                <div class="form-group">
+                    <label  for="pwd">密码：</label>
+                    <input style="width: 80%" class="form-control"  id="pwd" name="pwd" placeholder="密码" th:value="${user.getPassword()}" required="" >
+                </div>
+                <div class="form-group">
+                    <label  for="phoneNumber">电话号码：</label>
+                    <input style="width: 80%" type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="电话号码"th:value="${user.getPhoneNumber()}" required="">
+                </div>
+                <div class="form-group">
+                    <label  for="address">校内地址：</label>
+                    <input style="width: 80%" type="text" class="form-control" id="address" name="address" placeholder="地址" th:value="${user.getAddress()}" required="">
+                </div>
+                <!-- Button trigger modal -->
+                <div class="form-group">
+                    <button class="btn btn-default"  id="submitBtn">
+                        提交信息
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="/js/jquery-3.2.1.slim.min.js" ></script>
+<script type="text/javascript" src="/js/popper.min.js" ></script>
+<script type="text/javascript" src="/js/bootstrap.min.js" ></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="/js/feather.min.js" ></script>
+<script>
+    feather.replace()
+</script>
+<script type="text/javascript" src="/js/Chart.min.js" ></script>
+</body>
+
+</html>

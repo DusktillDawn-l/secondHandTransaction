@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Custom styles for this template -->
+<link th:href="@{/css/login.css}" rel="stylesheet">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>登录</title>
+
+	</head>
+
+	<body class="text-center" background="/img/tree.jpg">
+		<form id="mainForm" class="form-signin" action="/login" method="post">
+			<h1 class="h3 mb-3 font-weight-normal">用户名登录</h1>
+			<p style="color: #f80017;text-align: center" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+			<div id="inputArea">
+				<input style="margin-top: 20px" type="text" name="username" class="form-control" placeholder="用户名" required="" autofocus="">
+				<input style="margin-top: 20px" type="password" name="password" class="form-control" placeholder="密码" required="">
+				<button style="margin-top: 20px" class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+			</div>
+
+		</form>
+	</body>
+
+</html>

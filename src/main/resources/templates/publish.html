@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>个人主页</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+</head>
+
+<body background="/img/tree.jpg">
+<!--顶栏-->
+<div th:insert="~{commons/commons.html::topBar}"></div>
+<div class="container-fluid">
+    <div class="row">
+<!--侧边栏-->
+        <div th:insert="~{commons/commons.html::sideBar}"></div>
+
+<!--中心位置部分-->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4" style="margin-top: 40px;">
+            <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                </div>
+                <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                    <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h1 class="h2">发布闲置</h1>
+            </div>
+                <form action="/upload" method="post" enctype="multipart/form-data" style="background-color: #ffffff;
+    padding: 25px 20px;
+    box-shadow: 0 3px 3px #c8c8c8;
+    border: 1px solid #EBEEF5;
+    border-radius: 10px;">
+                    <div class="form-group">
+                        <label for="commodityName">商品名称</label>
+                        <input type="text" class="form-control" id="commodityName" name="commodityName" placeholder="商品名称" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">商品描述</label>
+                        <textarea class="form-control" rows="6" id="description" name="description" placeholder="商品描述" required=""></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">商品价格</label>
+                        <input type="text" class="form-control" id="price" name="price" placeholder="商品价格" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="goodsImage">添加商品图片</label>
+                        <input type="file" id="goodsImage" name="file" required="">
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button class="btn btn-default"  id="submitBtn">
+                        发布闲置
+                    </button>
+                </form>
+
+        </main>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="/js/jquery-3.2.1.slim.min.js" ></script>
+<script type="text/javascript" src="/js/popper.min.js" ></script>
+<script type="text/javascript" src="/js/bootstrap.min.js" ></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="/js/feather.min.js" ></script>
+<script>
+    feather.replace()
+
+</script>
+<script type="text/javascript" src="/js/Chart.min.js" ></script>
+</body>
+
+</html>

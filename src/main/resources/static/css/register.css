@@ -1,0 +1,18 @@
+html,body{
+    background-size: cover;
+    margin: 0 auto;
+    font-size: .875rem;
+}
+#regForm{
+    margin: 100px auto;
+    width: 500px;
+    background-color: #ffffff;
+    padding: 25px 20px;
+    box-shadow:0 3px 3px #c8c8c8 ;
+    border: 1px solid #EBEEF5;
+    border-radius: 10px;
+}
+.form-group{
+    margin: 15px auto;
+    width: 350px;
+}

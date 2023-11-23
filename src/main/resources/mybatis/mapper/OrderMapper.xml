@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.leon.mapper.OrderMapper">
+    
+    <select id="queryOrderList" resultType="Order">
+        select * from `order`
+    </select>
+
+    <select id="queryOrderByCommodityName" resultType="Order" parameterType="String">
+        select * from `order` where commodityName like concat('%',#{commodityName},'%')
+    </select>
+    
+    <select id="queryMyBought" resultType="Order">
+        select * from `order` where buyerId=#{buyerId}
+    </select>
+    
+    <select id="queryMySold" resultType="Order">
+        select * from `order` where sellerId=#{sellerId}
+    </select>
+    
+    <insert id="newOrder" parameterType="Order">
+        insert into `order`(orderId, sellerId,sellerName, buyerId,buyerName,commodityId,commodityName, price, sellerAddress, buyerAddress,sellerTele,buyerTele,transactionTime)
+        values (#{orderId},#{sellerId},#{sellerName},#{buyerId},#{buyerName},#{commodityId},#{commodityName},#{price},#{sellerAddress},#{buyerAddress},#{sellerTele},#{buyerTele},#{transactionTime})
+    </insert>
+
+    <delete id="deleteOrder" >
+        delete from `order` where orderId=#{orderId}
+    </delete>
+
+</mapper>
